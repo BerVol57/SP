@@ -191,10 +191,11 @@ class StockExample(server.App):
 
     def getPlot(self, params):
         df = self.getData(params)
-        plt_obj = df.plot(y=params['selected_value'])
+        plt_obj = df.plot(y=params['selected_value'], marker="*", color="r")
         plt_obj.set_title(params['selected_value'])
         plt_obj.set_ylabel(params['selected_value'])
         plt_obj.set_xlabel("weeks")
+        plt_obj.grid()
         fig = plt_obj.get_figure()
         return fig
 
